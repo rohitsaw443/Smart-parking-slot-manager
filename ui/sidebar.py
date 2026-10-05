@@ -45,49 +45,45 @@ class Sidebar(tk.Frame):
         self._build_bottom_exit()
 
     def _build_brand_header(self):
-        """Build top logo and application title."""
-        header_frame = tk.Frame(self, bg=COLOR_SIDEBAR_BG, padx=12, pady=16)
+        """Build top logo and application title (stacked vertically)."""
+        header_frame = tk.Frame(self, bg=COLOR_SIDEBAR_BG, pady=18)
         header_frame.pack(fill="x")
 
-        # Logo Icon Badge
+        # Logo Icon Badge (centered on top)
         logo_badge = tk.Label(
             header_frame,
             text="🅿️",
-            font=("Segoe UI", 16),
+            font=("Segoe UI", 22),
             bg=COLOR_PRIMARY_LIGHT,
             fg=COLOR_PRIMARY,
-            padx=6,
-            pady=2,
+            padx=10,
+            pady=4,
         )
-        logo_badge.pack(side="left", padx=(0, 8))
+        logo_badge.pack(pady=(0, 8))
 
-        # Title & Subtitle container
-        title_box = tk.Frame(header_frame, bg=COLOR_SIDEBAR_BG)
-        title_box.pack(side="left", fill="both", expand=True)
-
+        # Title (centered below logo)
         title_lbl = tk.Label(
-            title_box,
+            header_frame,
             text="Smart Parking",
             font=FONT_APP_TITLE,
             fg=COLOR_TEXT_PRIMARY,
             bg=COLOR_SIDEBAR_BG,
-            anchor="w",
         )
-        title_lbl.pack(anchor="w")
+        title_lbl.pack()
 
+        # Subtitle (centered below title)
         subtitle_lbl = tk.Label(
-            title_box,
+            header_frame,
             text="Slot Manager v1.0",
             font=FONT_APP_SUBTITLE,
             fg=COLOR_TEXT_MUTED,
             bg=COLOR_SIDEBAR_BG,
-            anchor="w",
         )
-        subtitle_lbl.pack(anchor="w")
+        subtitle_lbl.pack()
 
         # Divider line
         divider = tk.Frame(self, bg=COLOR_SIDEBAR_BORDER, height=1)
-        divider.pack(fill="x", padx=16, pady=(0, 10))
+        divider.pack(fill="x", padx=16, pady=(8, 10))
 
     def _build_nav_menu(self):
         """Build navigation buttons for each application section."""
