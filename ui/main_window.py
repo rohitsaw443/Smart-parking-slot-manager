@@ -3,6 +3,7 @@ main_window.py - Main application window and layout orchestrator.
 Combines Sidebar, Header, and Content Views with smooth navigation.
 """
 
+import os
 import sys
 import tkinter as tk
 from tkinter import messagebox
@@ -86,10 +87,27 @@ class MainWindow:
         self.root.protocol("WM_DELETE_WINDOW", self.on_exit)
 
     def _configure_root_window(self):
-        """Set window title, dimensions, minimum size, and center on screen."""
+        """Set window title, dimensions, minimum size, custom icon, and center on screen."""
         self.root.title(APP_TITLE)
         self.root.configure(bg=COLOR_BG)
         self.root.minsize(MIN_WIDTH, MIN_HEIGHT)
+
+        # Apply custom window icon
+        project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+        ico_path = os.path.join(project_root, "assets", "app_icon.ico")
+        png_path = os.path.join(project_root, "assets", "app_icon.png")
+
+        if os.path.exists(ico_path):
+            try:
+                self.root.iconbitmap(ico_path)
+            except Exception:
+                pass
+        elif os.path.exists(png_path):
+            try:
+                icon_img = tk.PhotoImage(file=png_path)
+                self.root.iconphoto(False, icon_img)
+            except Exception:
+                pass
 
         # Center window on screen
         screen_w = self.root.winfo_screenwidth()

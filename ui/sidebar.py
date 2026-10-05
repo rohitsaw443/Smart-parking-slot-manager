@@ -30,7 +30,7 @@ class Sidebar(tk.Frame):
     """Left sidebar containing branding, navigation menu, and exit button."""
 
     def __init__(self, parent, on_navigate, on_exit):
-        super().__init__(parent, bg=COLOR_SIDEBAR_BG, width=240)
+        super().__init__(parent, bg=COLOR_SIDEBAR_BG, width=255)
         self.pack_propagate(False)
 
         self.on_navigate = on_navigate
@@ -46,20 +46,20 @@ class Sidebar(tk.Frame):
 
     def _build_brand_header(self):
         """Build top logo and application title."""
-        header_frame = tk.Frame(self, bg=COLOR_SIDEBAR_BG, padx=16, pady=20)
+        header_frame = tk.Frame(self, bg=COLOR_SIDEBAR_BG, padx=12, pady=16)
         header_frame.pack(fill="x")
 
         # Logo Icon Badge
         logo_badge = tk.Label(
             header_frame,
             text="🅿️",
-            font=("Segoe UI", 20),
+            font=("Segoe UI", 16),
             bg=COLOR_PRIMARY_LIGHT,
             fg=COLOR_PRIMARY,
-            padx=8,
-            pady=4,
+            padx=6,
+            pady=2,
         )
-        logo_badge.pack(side="left", padx=(0, 10))
+        logo_badge.pack(side="left", padx=(0, 8))
 
         # Title & Subtitle container
         title_box = tk.Frame(header_frame, bg=COLOR_SIDEBAR_BG)

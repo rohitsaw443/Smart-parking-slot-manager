@@ -58,7 +58,7 @@ COLOR_EXIT_BORDER = "#FECACA"
 # ==========================================
 FONT_FAMILY = "Segoe UI"
 
-FONT_APP_TITLE = (FONT_FAMILY, 13, "bold")
+FONT_APP_TITLE = (FONT_FAMILY, 12, "bold")
 FONT_APP_SUBTITLE = (FONT_FAMILY, 9)
 
 FONT_NAV = (FONT_FAMILY, 10, "normal")
